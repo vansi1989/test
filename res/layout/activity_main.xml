@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.fan.usejar.MainActivity" >
+
+     <!-- Settings -->
+
+    <Button
+        android:id="@+id/open_device"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/open" />
+
+    <!-- Read byte -->
+
+    <EditText
+        android:id="@+id/ReadValues"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:focusableInTouchMode="false"
+        android:hint="@string/hint" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/clear" />
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#00ffff">
+        
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/temperature"
+            android:textSize="14pt"/>
+        
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/time"
+            android:textSize="14pt"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false" >
+        
+    	<LinearLayout 
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_weight="1"
+    	    android:gravity="center">
+
+	        <NumberPicker 
+	            android:id="@+id/pick_temp"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+		        android:focusableInTouchMode="true"/>
+    	    
+    	</LinearLayout>
+
+    	<LinearLayout 
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_weight="1"
+    	    android:gravity="center">
+
+    		<NumberPicker
+    		    android:id="@+id/pick_time"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:focusableInTouchMode="true" />
+
+    	</LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+	    <Button
+	        android:id="@+id/SetButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        style="?android:attr/buttonBarButtonStyle"
+            android:background="@xml/button_pattern"
+	        android:text="@string/set" />
+	
+	    <Button
+	        android:id="@+id/PowerButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        style="?android:attr/buttonBarButtonStyle"
+            android:background="@xml/button_pattern"
+	        android:text="@string/Power" />
+        
+    </LinearLayout>
+
+    
+
+</LinearLayout>
