@@ -60,6 +60,8 @@ public class MainActivity extends Activity {
 
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);// 保持常亮的屏幕的状态
 		InitUI();
+		SetButton.setEnabled(false);
+		PowerButton.setEnabled(false);
 		open_button.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -77,10 +79,14 @@ public class MainActivity extends Activity {
 						if (driver.SetConfig(baud_rate, data_bit, stop_bit, parity, flow_ctrl)) {
 							Toast.makeText(MainActivity.this, "设备配置成功", Toast.LENGTH_SHORT).show();
 							open_button.setText("Close");
+							SetButton.setEnabled(true);
+							PowerButton.setEnabled(true);
 							isOpen = true;
 							new readThread().start();//开启读线程读取串口接收的数据
 						} else {
 							Toast.makeText(MainActivity.this, "设备配置失败", Toast.LENGTH_SHORT).show();
+							SetButton.setEnabled(false);
+							PowerButton.setEnabled(false);
 						}
 					} else {
 						Toast.makeText(MainActivity.this, "打开设备失败!",	Toast.LENGTH_SHORT).show();
@@ -116,8 +122,10 @@ public class MainActivity extends Activity {
 				
 				if (0 == power) {
 					power = 1;
+					PowerButton.setText("OFF");
 				} else {
 					power = 0;
+					PowerButton.setText("ON");
 				}
 				
 				to_send[0] = power;
